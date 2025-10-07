@@ -12,7 +12,7 @@ import Pagination from "@/components/Pagination/Pagination"
 import fetchNotes from "@/lib/api";
 import toast, { Toaster } from "react-hot-toast"
 
-export default function App() {
+export default function NoteDetails({ tag }: { tag?: string }) {
     const [inputValue, setInputValue] = useState<string>(""); 
     const [searchWord, setSearchWord] = useState<string>("");
     const [openModal, setOpenModal] = useState(false);
@@ -39,8 +39,8 @@ export default function App() {
 
 
     const { data } = useQuery({
-        queryKey: ['notes', searchWord, page],
-        queryFn: () => fetchNotes(searchWord, page),
+        queryKey: ['notes', searchWord, page, tag],
+        queryFn: () => fetchNotes(searchWord, page, tag),
         placeholderData: keepPreviousData,
     })
 
