@@ -39,7 +39,7 @@ export default function Modal({ onClose, children }: ModalProps) {
         >
             <div className={css.modal}>{children}</div>
         </div>,
-        document.body
-    )
+        document.body,
+    );
 
 };

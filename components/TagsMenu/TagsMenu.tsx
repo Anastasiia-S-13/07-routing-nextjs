@@ -20,7 +20,7 @@ const TagsMenu = () => {
             {isOpen && (<ul className={css.menuList}>
                 {tags.map((element) => {
                     return <li key={element} className={css.menuItem} onClick={toggle}>
-                        <Link href={element === "All" ? "/notes/filter/All" : `/notes/filter/${element}`} >{element}</Link>
+                        <Link className={css.menuLink} href={element === "All" ? "/notes/filter/All" : `/notes/filter/${element}`} >{element}</Link>
                     </li>
                 })}
             </ul>)}
