@@ -13,7 +13,9 @@ import fetchNotes from "@/lib/api";
 import toast, { Toaster } from "react-hot-toast"
 import { NoteTag } from "@/types/note";
 
-export default function NoteDetails({ tag }: { tag?: NoteTag }) {
+
+
+export default function NoteDetails({ tag }: { tag?: string }) {
     const [inputValue, setInputValue] = useState<string>(""); 
     const [searchWord, setSearchWord] = useState<string>("");
     const [openModal, setOpenModal] = useState(false);
@@ -41,7 +43,7 @@ export default function NoteDetails({ tag }: { tag?: NoteTag }) {
 
     const { data } = useQuery({
         queryKey: ['notes', searchWord, page, tag],
-        queryFn: () => fetchNotes(searchWord, page, tag),
+        queryFn: () => fetchNotes(searchWord, page, tag as NoteTag | undefined),
         placeholderData: keepPreviousData,
     })
 

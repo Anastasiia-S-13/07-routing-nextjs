@@ -1,6 +1,7 @@
 import fetchNotes from "@/lib/api";
 import { dehydrate, HydrationBoundary, QueryClient } from "@tanstack/react-query";
 import NoteDetails from "./Notes.client";
+import { NoteTag } from "@/types/note";
 
 
 type SlugProps = {
@@ -18,7 +19,7 @@ export default async function DocsPage({ params }: SlugProps) {
 
     await queryClient.prefetchQuery({
         queryKey: ["notes", searchWord, page, tag],
-        queryFn: () => fetchNotes(searchWord, page, tag),
+        queryFn: () => fetchNotes(searchWord, page, tag as NoteTag | undefined),
     })
 
     return (
