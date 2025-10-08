@@ -11,8 +11,9 @@ import NoteForm from "@/components/NoteForm/NoteForm"
 import Pagination from "@/components/Pagination/Pagination"
 import fetchNotes from "@/lib/api";
 import toast, { Toaster } from "react-hot-toast"
+import { NoteTag } from "@/types/note";
 
-export default function NoteDetails({ tag }: { tag?: string }) {
+export default function NoteDetails({ tag }: { tag?: NoteTag }) {
     const [inputValue, setInputValue] = useState<string>(""); 
     const [searchWord, setSearchWord] = useState<string>("");
     const [openModal, setOpenModal] = useState(false);
