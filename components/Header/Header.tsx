@@ -15,7 +15,7 @@ export default async function Header() {
                         <Link href="/" className={css.navigationLink}>Home</Link>
                     </li>
                     <li className={css.navigationItem}>
-                        <Link href="/notes" className={css.navigationLink}>Notes</Link>
+                        <Link href="/" className={css.navigationLink}>Notes</Link>
                     </li>
                     <li>
                         <TagsMenu />

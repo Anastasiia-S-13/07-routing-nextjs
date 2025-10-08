@@ -31,7 +31,7 @@ axios.defaults.baseURL = "https://notehub-public.goit.study/api/notes";
 //     return res.data;
 // }
 
-export default async function fetchNotes(query: string, page: number, tag?: string): Promise<NoteHttpResponse> {
+export default async function fetchNotes(query: string, page: number, tag?: NoteTag): Promise<NoteHttpResponse> {
     const response = await axios.get<NoteHttpResponse>("", {
         params: {
             search: query,
@@ -73,7 +73,7 @@ export async function deleteNote(id: string): Promise<Note> {
 
 export async function fetchNoteById(id: string): Promise<Note> {
     const responseById = await axios.get<Note>(`/${id}`, {
-        params: {id},
+
         headers: {
             accept: "application/json",
             Authorization: `Bearer ${myKey}`,
