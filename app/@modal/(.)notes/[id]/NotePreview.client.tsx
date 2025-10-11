@@ -38,6 +38,7 @@ const NotePreview = () => {
               Back
             </button>
           </div>
+          <p className={css.tag}>{note.tag}</p>
           <p className={css.content}>{note?.content}</p>
           <p className={css.date}>{note?.createdAt}</p>
         </div>
